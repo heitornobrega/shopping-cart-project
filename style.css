@@ -176,12 +176,16 @@ body {
   background-color: rgb(249, 249, 246);
 }
 
-.material-symbols-outlined {
-  color: white;
-  cursor: pointer;
-  font-variation-settings:
-  'FILL' 0,
-  'wght' 400,
-  'GRAD' 0,
-  'opsz' 48,
+.material-icons .badge{
+  transition: 0.5s;
+  display: none;
+  font-size: 12px;
+  position: absolute;
+  font-weight: 550;
+  top: -5px;
+  right: -5px;
+  padding: 5px 10px;
+  border-radius: 50%;
+  background:  white;
+  color: rgb(3, 52, 45);
 }
