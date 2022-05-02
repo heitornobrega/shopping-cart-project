@@ -81,6 +81,8 @@ function carregaCarrinho() {
 }
 
 function limpaCarrinho() {
+  total = 0;
+  totalOutput.innerHTML = '0';
   carrinho.innerHTML = '';
   localStorage.clear();
 }
@@ -98,8 +100,49 @@ function addEventNoAddCart() {
   btn.forEach((element) => element.addEventListener('click', precosEntrada));
 }
 
+
+
+function openCart() {
+  document.querySelector('.container-title')
+  .style.width = '80%';
+  document.querySelector('.container-cartTitle')
+    .style.display = 'flex';
+  document.querySelector('.cart')
+    .style.display = 'flex';
+  document.querySelector('.items')
+    .style.flexBasis = '70%';
+  document.querySelector('.empty-cart')
+    .style.display = 'inline';
+}
+
+function closeCart() {
+  document.querySelector('.container-title')
+  .style.width = '95%';
+  document.querySelector('.container-cartTitle')
+    .style.display = 'none';
+  document.querySelector('.cart')
+    .style.display = 'none';
+  document.querySelector('.items')
+    .style.flexBasis = '100%';
+  document.querySelector('.empty-cart')
+    .style.display = 'none';
+}
+
+function changeCart() {
+   if (document.querySelector('.material-icons').className.includes('closed')) {
+    document.querySelector('.material-icons').classList.remove('closed');
+    document.querySelector('.material-icons').classList.add('opened');
+    openCart()
+  } else {
+    document.querySelector('.material-icons').classList.remove('opened');
+    document.querySelector('.material-icons').classList.add('closed');
+    closeCart()
+ }
+}
+
 window.onload = async () => {
   await addProducts('computador');
   carregaCarrinho();
   addEventNoAddCart();
 };
+
